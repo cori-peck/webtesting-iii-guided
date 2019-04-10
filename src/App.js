@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    action: 'nothing',
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Greeter save={this.save} delete={this.delete} />
       </div>
     );
   }
+
+  save = () => {
+    console.log('saving you')
+  }
+
+  delete = () => {
+    console.log('deleteing all')
+  }
 }
+
+  export function Greeter(props) {
+    return <button onClick={props.delete}>Save</button>
+  }
 
 export default App;
